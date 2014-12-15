@@ -1,0 +1,46 @@
+import java.util.Random;
+
+
+public class SortingTests {
+    public static void main(String[] args) {
+        Integer[] ints = new Integer[25];
+        Integer[] ints2 = /*new Integer[25]*/{20,21,30,1,4,3,7,20,100};
+        Integer[] ints3 = new Integer[25];
+        Integer[] ints4 = new Integer[25];
+        Random r = new Random();
+        for (int j = 0; j < ints.length; j++) {
+            ints[j] = r.nextInt(100);
+           // ints2[j] = r.nextInt(100);
+            ints3[j] = r.nextInt(100);
+            ints4[j] = r.nextInt(100);
+        }
+        AbstractSorter bs = new BubbleSorter(ints);
+        AbstractSorter ss = new SelectionSorter(ints2);
+        AbstractSorter iS = new InsertionSorter(ints3);
+        AbstractSorter ms = new MergeSorter(ints4);
+        bs.sortArray();
+        ss.sortArray();
+        iS.sortArray();
+        ms.sortArray();
+        Integer[] sorted = (Integer[]) bs.getArray();
+        Integer[] sorted2 = (Integer[]) ss.getArray();
+        Integer[] sorted3 = (Integer[]) iS.getArray();
+        Integer[] sorted4 = (Integer[]) ms.getArray();
+        System.out.println("Bubble");
+        for (Integer me: sorted) {
+            System.out.println(me);
+        }
+        System.out.println("Selection");
+        for (Integer me: sorted2) {
+            System.out.println(me);
+        }
+        System.out.println("Insertion");
+        for (Integer me: sorted3) {
+            System.out.println(me);
+        }
+        System.out.println("Merge");
+        for (Integer me: sorted4) {
+            System.out.println(me);
+        }
+    }
+}

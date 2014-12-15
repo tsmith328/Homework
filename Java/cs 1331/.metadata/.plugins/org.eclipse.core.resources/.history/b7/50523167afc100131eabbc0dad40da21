@@ -1,0 +1,16 @@
+import java.awt.Rectangle;
+
+
+public class Tyrell extends House {
+
+    public Tyrell(int x, int y, Rectangle bounds) {
+        this.x = x;
+        this.y = y;
+        this.bounds = bounds;
+        this.health = 100;
+    }
+
+    public String toString() {
+        return "rose";
+    }
+}

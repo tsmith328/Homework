@@ -1,0 +1,75 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Random;
+
+
+public class SortingTests {
+    public static void main(String[] args) {
+        Integer[] ints = new Integer[2500];
+        Integer[] ints2 = new Integer[2500];
+        Integer[] ints3 = new Integer[2500];
+        Integer[] ints4 = new Integer[2500];
+        Random r = new Random();
+        for (int j = 0; j < ints.length; j++) {
+            ints[j] = r.nextInt(100);
+            ints2[j] = r.nextInt(100);
+            ints3[j] = r.nextInt(100);
+            ints4[j] = r.nextInt(100);
+        }
+        AbstractSorter bs = new BubbleSorter(ints);
+        AbstractSorter ss = new SelectionSorter(ints2);
+        AbstractSorter iS = new InsertionSorter(ints3);
+        AbstractSorter ms = new MergeSorter(ints4);
+        bs.sortArray();
+        ss.sortArray();
+        iS.sortArray();
+        ms.sortArray();
+        Integer[] sorted = (Integer[]) bs.getArray();
+        Integer[] sorted2 = (Integer[]) ss.getArray();
+        Integer[] sorted3 = (Integer[]) iS.getArray();
+        Integer[] sorted4 = (Integer[]) ms.getArray();
+        String b = "Bubble:\n";
+        for (Integer me: sorted) {
+            b += me + "\n";
+        }
+        bs.writeToFile("bubble", b);
+        
+        String s = "Selection\n";
+        for (Integer me: sorted2) {
+            System.out.println(me);
+        }
+        System.out.println("Insertion");
+        for (Integer me: sorted3) {
+            System.out.println(me);
+        }
+        System.out.println("Merge");
+        for (Integer me: sorted4) {
+            System.out.println(me);
+        }
+    }
+
+    private String writeToFile(String sorter, String stuff) {
+        try {
+
+            File file = new File(sorter + ".txt");
+
+            // if file doesnt exists, then create it
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(stuff);
+            bw.close();
+
+            return "Done";
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+}

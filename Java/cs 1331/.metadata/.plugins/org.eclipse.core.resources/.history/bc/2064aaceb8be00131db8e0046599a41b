@@ -1,0 +1,97 @@
+import java.awt.Rectangle;
+import java.util.Random;
+
+public abstract class House {
+    protected int health, speed, age, maxAge;
+    protected int x, y;
+    protected Rectangle bounds;
+    protected static Random r = new Random();
+
+    public abstract boolean canReproduceWithHouse(House otherHouse);
+
+    public abstract boolean canDestroyHouse(House otherHouse);
+
+    public boolean isDead() {
+        if (health <= 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public void die() {
+        this.health = 0;
+    }
+
+    public boolean isOld() {
+        if (this.age >= this.maxAge) {
+            return true;
+        }
+        return false;
+    }
+
+    public void move() { //FIX THIS
+        boolean fits = false;
+        int sign;
+        int moveX = 0;
+        int moveY = 0;
+        int newX = this.x;
+        int newY = this.y;
+        while (!fits) {
+            if (r.nextBoolean()) {
+                sign = -1;
+            } else {
+                sign = 1;
+            }
+            moveX = sign * r.nextInt(bounds.width);
+            moveY = sign * r.nextInt(bounds.height);
+            //Since Greyjoys are sea-faring, they can only be near the coast
+            if (this instanceof Greyjoy) {
+                if ((newX < 80 || newX > bounds.width - 80)
+                        && (newY < 80 || newY > bounds.height - 80)) {
+                    fits = true;
+                } else {
+                    fits = false;
+                }
+            } else {
+                fits = true;
+            }
+        }
+    }
+
+    public House reproduceWithHouse(House otherHouse) {
+        int chance = r.nextInt(100);
+        if (chance > 45) {
+            return null;
+        }
+
+        if (this instanceof Stark) {
+            return (House) new Stark(this.x, this.y, this.bounds);
+        } else if (this instanceof Tully) {
+            return (House) new Tully(this.x, this.y, this.bounds);
+        } else if (this instanceof Baratheon) {
+            return (House) new Baratheon(this.x, this.y, this.bounds);
+        } else if (this instanceof Martell) {
+            return (House) new Martell(this.x, this.y, this.bounds);
+        } else if (this instanceof Greyjoy) {
+            return (House) new Greyjoy(this.x, this.y, this.bounds);
+        } else if (this instanceof Arryn) {
+            return (House) new Arryn(this.x, this.y, this.bounds);
+        } else if (this instanceof Tyrell) {
+            return (House) new Tyrell(this.x, this.y, this.bounds);
+        } else if (this instanceof Lannister) {
+            return (House) new Lannister(this.x, this.y, this.bounds);
+        } else if (this instanceof Targaryan) {
+            return (House) new Targaryan(this.x, this.y, this.bounds);
+        } else {
+            return null;
+        }
+    }
+
+    public void destroyHouse(House otherHouse) {
+        otherHouse.die();
+    }
+
+    protected void setHealth(int newHealth) {
+        this.health = newHealth;
+    }
+}

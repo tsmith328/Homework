@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 6 elements from project &apos;HW6&apos;&#x0D;&#x0A;- Original project: &apos;HW6&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     ImageFile.java&#x0D;&#x0A;     LongText.java&#x0D;&#x0A;     Previewable.java&#x0D;&#x0A;     Previewer.java&#x0D;&#x0A;     PreviewPanel.java&#x0D;&#x0A;     ShortText.java" description="Delete elements" element1="/src&lt;{Previewer.java" element2="/src&lt;{PreviewPanel.java" element3="/src&lt;{LongText.java" element4="/src&lt;{ShortText.java" element5="/src&lt;{ImageFile.java" element6="/src&lt;{Previewable.java" elements="6" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1396322625002" subPackages="false" version="1.0"/>
+</session>

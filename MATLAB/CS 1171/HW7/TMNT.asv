@@ -1,0 +1,18 @@
+function TMNT(menu, limit)
+    fileIn = fopen(menu,'r');
+    [name, ext] = strtok(menu,'.');
+    fileOut = fopen([name, '_order', ext], 'w');
+    order = fgets(fileIn);
+    fgets(fileIn);
+    line = fgetl(fileIn);
+    while ~feof(fileIn)
+        [price, food] = strtok(line);
+        if str2num(price(2:end)) <= str2num(limit(2:end))
+            order = [order, food(4:end)];
+        end
+        line = fgetl(fileIn);
+    end
+    fwrite(fileOut,order);
+    fclose(fileIn);
+    fclose(fileOut);
+end

@@ -1,0 +1,6 @@
+import java.io.*;
+public class FileIO {
+    public static void main(String[] args) {
+        File dir = new File("C://Users/Tyler");
+    }
+}

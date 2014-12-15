@@ -1,0 +1,103 @@
+import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.util.Random;
+import java.awt.Image;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
+public abstract class House {
+    protected int health, speed, age, maxAge;
+    protected int x, y;
+    protected Rectangle bounds;
+    protected Image sigil;
+    protected static Random r = new Random();
+
+    public abstract boolean canReproduceWithHouse(House otherHouse);
+
+    public abstract boolean canDestroyHouse(House otherHouse);
+
+    public void move() {
+        
+    }
+
+    public void draw(Graphics g) {
+        
+    }
+
+    public boolean collidesWithHouse(House otherHouse) {
+
+    }
+
+    public House reproduceWithHouse(House otherHouse) {
+        int chance = r.nextInt(100);
+        if (chance > 45) {
+            return null;
+        }
+
+        if (this instanceof Stark) {
+            return (House) new Stark(this.x, this.y, this.bounds);
+        } else if (this instanceof Tully) {
+            return (House) new Tully(this.x, this.y, this.bounds);
+        } else if (this instanceof Baratheon) {
+            return (House) new Baratheon(this.x, this.y, this.bounds);
+        } else if (this instanceof Martell) {
+            return (House) new Martell(this.x, this.y, this.bounds);
+        } else if (this instanceof Greyjoy) {
+            return (House) new Greyjoy(this.x, this.y, this.bounds);
+        } else if (this instanceof Arryn) {
+            return (House) new Arryn(this.x, this.y, this.bounds);
+        } else if (this instanceof Tyrell) {
+            return (House) new Tyrell(this.x, this.y, this.bounds);
+        } else if (this instanceof Lannister) {
+            return (House) new Lannister(this.x, this.y, this.bounds);
+        } else if (this instanceof Targaryan) {
+            return (House) new Targaryan(this.x, this.y, this.bounds);
+        } else {
+            return null;
+        }
+    }
+
+    public boolean isOld() {
+        if (this instanceof Targaryan) {
+            return false;
+        }
+        if (this.age >= this.maxAge) {
+            return true;
+        }
+        return false;
+    }
+
+    public void destroyHouse(House otherHouse) {
+        otherHouse.die();
+    }
+
+    public void die() {
+        this.health = 0;
+    }
+    
+    public boolean isDead() {
+        if (health <= 0) {
+            return true;
+        }
+        return false;
+    }
+
+    protected void setHealth(int newHealth) { //delete maybe
+        this.health = newHealth;
+    }
+
+    protected Image getSigilFromFile() {
+        String fileName = this.toString() + ".png";
+        try {
+            File imageFile = new File(fileName);
+            Image image = ImageIO.read(imageFile);
+            return image;
+        } catch (IOException e) {
+            String errorString = "Sigil file not found;"
+                + " please verify that you have my provided image files.";
+            JOptionPane.showMessageDialog(null, errorString, "No Sigil",
+                    JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+    }
+}

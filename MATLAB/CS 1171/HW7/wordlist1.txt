@@ -1,0 +1,3 @@
+chicken,forest,laundry,grass,ladybug
+snack,play,eat,joke,sleep,bounce
+punctual,smelly,taste,icky,fat,light

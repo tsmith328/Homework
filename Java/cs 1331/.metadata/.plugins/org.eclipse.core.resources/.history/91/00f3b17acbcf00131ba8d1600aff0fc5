@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+
+public class FinalPractice {
+    public static void main(String[] args) {
+        String s = "This string has two instances of the word string.";
+        String word = "string";
+        System.out.println(howOften(word,s));
+    }
+    
+    public static int howOften(String word, String sentence) {
+        int count = 0;
+        Scanner s = new Scanner(sentence);
+        while (s.hasNext()) {
+            if ((s.next()).equals(word)) {
+                count++;
+            }
+        }
+        return count;
+    }
+}

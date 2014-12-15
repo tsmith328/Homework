@@ -1,0 +1,20 @@
+
+public class MyStack<T> {
+    private T top;
+    private T bottom;
+
+    public MyStack() {
+       top = null;
+       bottom = null;
+    }
+
+    public void push(T elmt) {
+        
+    }
+    private class Node {
+        private T next;
+        public Node() {
+            next = null;
+        }
+    }
+}

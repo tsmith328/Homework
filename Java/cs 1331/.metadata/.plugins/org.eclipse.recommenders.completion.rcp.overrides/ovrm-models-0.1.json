@@ -1,0 +1,27 @@
+{
+  "C:\\Users\\Tyler\\Dropbox\\homework\\cs 1331\\HW8\\src": {
+    "location": "C:\\Users\\Tyler\\Dropbox\\homework\\cs 1331\\HW8\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Tyler\\Dropbox\\homework\\cs 1331\\HW8\\src\u0027. Skipped."
+  },
+  "C:\\Program Files\\Java\\jre7\\lib\\rt.jar": {
+    "coordinate": "jre:jre:zip:ovrm:1.0.0",
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\rt.jar",
+    "status": "RESOLVED"
+  },
+  "C:\\Users\\Tyler\\Dropbox\\homework\\cs 1331\\HW9\\src": {
+    "location": "C:\\Users\\Tyler\\Dropbox\\homework\\cs 1331\\HW9\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Tyler\\Dropbox\\homework\\cs 1331\\HW9\\src\u0027. Skipped."
+  },
+  "C:\\Users\\Tyler\\Dropbox\\homework\\cs 1331\\HW10\\src": {
+    "location": "C:\\Users\\Tyler\\Dropbox\\homework\\cs 1331\\HW10\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\Tyler\\Dropbox\\homework\\cs 1331\\HW10\\src\u0027. Skipped."
+  },
+  "C:\\Program Files (x86)\\Java\\jre7\\lib\\rt.jar": {
+    "coordinate": "jre:jre:zip:ovrm:1.0.0",
+    "location": "C:\\Program Files (x86)\\Java\\jre7\\lib\\rt.jar",
+    "status": "RESOLVED"
+  }
+}

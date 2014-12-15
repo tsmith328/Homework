@@ -1,0 +1,14 @@
+Tyler Smith
+CS 1331 Section A2
+TAs: Andrea Fletcher and Ahmed Ismail
+I worked on this assignment alone, using this semester's course materials.
+
+Homework 1:
+
+1. An error occurred while trying to compile: class GTbuzz should be declared in a file named the same.
+2. There was no error during compilation; however, error "java.lang.ArithmeticException: divide by zero" during runtime.
+3. Error during compilation: "cannot find symbol: method println in class GTBuzz."
+4. Compilation errors: unclosed character literal after " 'm ", same after " n' ", ";" expected after "from" and "Tech!", and unclosed string literal after " Tech!" ".
+5. No error
+6. Compilation error: ";" expected.
+7. Compilation error: reached end of file while parsing

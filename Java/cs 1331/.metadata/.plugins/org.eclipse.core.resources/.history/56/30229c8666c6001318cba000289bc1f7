@@ -1,0 +1,12 @@
+
+public class MyStack<T> {
+
+    
+    
+    private class Node {
+        private T next;
+        public Node() {
+            next = null;
+        }
+    }
+}

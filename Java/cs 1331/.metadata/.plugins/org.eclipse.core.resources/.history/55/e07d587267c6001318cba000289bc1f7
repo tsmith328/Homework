@@ -1,0 +1,27 @@
+
+public class MyStack<T> {
+    private Node top;
+    private Node bottom;
+
+    public MyStack() {
+       top = null;
+       bottom = null;
+    }
+
+    public void push(T elmt) {
+        Node n = new Node(elmt, top);
+        top = n;
+    }
+
+    public T pop() {
+        
+    }
+    private class Node {
+        private T me;
+        private T next;
+        public Node(T elem, Node next) {
+            me = elem;
+            this.next = null;
+        }
+    }
+}

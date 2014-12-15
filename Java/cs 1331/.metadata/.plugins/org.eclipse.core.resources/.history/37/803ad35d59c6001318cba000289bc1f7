@@ -1,0 +1,27 @@
+
+public class SelectionSorter extends AbstractSorter {
+
+    public SelectionSorter(Comparable[] arr) {
+        super(arr);
+    }
+
+    public void sortArray() {
+        int min;
+        for (int j = 0; j < array.length; j++) {
+            min = getMinIndex(j, array.length);
+            if (min != j) {
+                this.swap(min, j);
+            }
+        }
+    }
+
+    private int getMinIndex(int start, int end) {
+        int min = 0;
+        for (int i = start; i < end; i++) {
+            if (array[i].compareTo(array[min]) < 0) {
+                min = i;
+            }
+        }
+        return min;
+    }
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<checkstyle-configurations file-format-version="5.0.0" default-check-configuration="Class Checkstyle">
+  <check-configuration name="Class Checkstyle" location="C:\Users\Tyler\Dropbox\Homework\CS 1331\CheckStyle\cs1331-checkstyle.xml" type="external" description="">
+    <additional-data name="protect-config-file" value="false"/>
+  </check-configuration>
+</checkstyle-configurations>

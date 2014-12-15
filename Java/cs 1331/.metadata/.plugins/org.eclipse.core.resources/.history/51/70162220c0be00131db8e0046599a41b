@@ -1,0 +1,41 @@
+import java.awt.Rectangle;
+
+
+public class Stark extends NorthHouse {
+    public Stark(int x, int y, Rectangle bounds) {
+        this.x = x;
+        this.y = y;
+        this.bounds = bounds;
+        health = 100;
+        age = 0;
+        maxAge = ; //FIgure out good age
+        sigil = this.getSigilFromFile();
+    }
+
+    public boolean canDestroyHouse(House otherHouse) {
+        int killChance = r.nextInt(100);
+        if (otherHouse instanceof Lannister) {
+            if (killChance < 40 /*chance to kill Lannister*/) {
+                return true;
+            }
+            return false;
+
+        } // else if (otherHouse instanceof /*any other it can destroy*/) { }
+             else {
+            return false;
+             }
+    }
+
+    public boolean canReproduceWithHouse(House otherHouse) {
+        if (otherHouse instanceof Tully) {
+            return true;
+        } // else if (otherHouse instanceof /*other choices*/)
+        else {
+            return false;
+        }
+    }
+
+    public String toString() {
+        return "direwolf";
+    }
+}

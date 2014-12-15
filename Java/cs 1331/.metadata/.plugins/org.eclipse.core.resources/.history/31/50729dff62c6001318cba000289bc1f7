@@ -1,0 +1,66 @@
+
+public class MergeSorter<T> extends AbstractSorter {
+
+    public MergeSorter(Comparable<T>[] arr) {
+        super(arr);
+        T[] array = (T[]) super.array;
+    }
+
+    public void sortArray() {
+        int len = this.array.length;
+        if (len <= 1) {
+            return;
+        }
+        T[] left, right;
+        int mid = Math.round(len / 2);
+        left = (T[]) new Comparable[mid];
+        right = (T[]) new Comparable[len - mid];
+        for (int i = 0; i < mid; i++) {
+            left[i] = (T) this.array[i];
+        }
+        for (int j = mid; j < len; j++) {
+            right[j - mid] = (T) array[j];
+        }
+
+        AbstractSorter leftSorter = new MergeSorter<T>((Comparable[]) left);
+        AbstractSorter rightSorter = new MergeSorter<T>((Comparable[]) right);
+        leftSorter.sortArray();
+        rightSorter.sortArray();
+        array = merge(leftSorter.getArray(), rightSorter.getArray());
+    }
+
+    private Comparable<T>[] removeFirst(Comparable[] old) {
+        Comparable<T>[] newArr = new Comparable[old.length - 1];
+        for (int i = 1; i < old.length; i++) {
+            newArr[i - 1] = old[i];
+        }
+        return newArr;
+    }
+
+    private Comparable<T>[] merge(Comparable<T>[] left, Comparable<T>[] right) {
+        Comparable<T>[] finished = (T) new Comparable[left.length + right.length];
+        int pos = 0;
+        while (left.length > 0 || right.length > 0) {
+            if (left.length > 0 && right.length > 0) {
+                if (left[0].compareTo((T) right[0]) <= 0) {
+                    finished[pos] = left[0];
+                    pos++;
+                    left = removeFirst(left);
+                } else {
+                    finished[pos] = right[0];
+                    pos++;
+                    right = removeFirst(right);
+                }
+            } else if (left.length > 0) {
+                finished[pos] = left[0];
+                pos++;
+                left = removeFirst(left);
+            } else if (right.length > 0) {
+                finished[pos] = right[0];
+                pos++;
+                right = removeFirst(right);
+            }
+        }
+        return finished;
+    }
+}

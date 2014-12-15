@@ -1,0 +1,7 @@
+
+public class Hashing {
+    public static void main(String[] args) {
+        String s = "THIS IS A STRING";
+        System.out.println(s.hashCode());
+    }
+}
