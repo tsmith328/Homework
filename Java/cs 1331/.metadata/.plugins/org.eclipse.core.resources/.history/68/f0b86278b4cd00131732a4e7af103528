@@ -1,5 +1,0 @@
-import java.util.Date;
-
-public class StringConcat {
-    public StringBuilder sb = new StringBuilder();
-}
