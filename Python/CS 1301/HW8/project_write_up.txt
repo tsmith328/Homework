@@ -1,0 +1,10 @@
+Tyler Smith
+Kamryn Harris
+Weiyi Chen
+Homework 8 Write-Up
+
+Doug the Dancing Dog is about a dog who cannot sing. Because he cannot sing, his friends dont't see him as belonging to the group. However, through the power of dance, Doug is able to show his friend, Cat, how to express one's self without voice.
+We used a modified "Seeing Red" in order to create colored lights, emulating a dance floor. We used a modified "Fade to black" to fade into the movie, and we used "split screen" to create a better dancing sequence. 
+Instead of using one "actingCode.py", we used two: One for each character. Also, in the filming code, we edited the limiting integer in the while loop to specify how many pictures to take per scene.
+
+To recreate the scenes, load "performanceCode.py" and run movie().
